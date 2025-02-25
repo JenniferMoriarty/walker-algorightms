@@ -7,13 +7,14 @@ xpos = 400 #start point for x
 ypos = 400 #start point for y
 xdir = 1
 ydir = 1
+
+
 #render section---------------------------------------------
-
-
     
-for i in range(5000): #loop this whole process 100,000 times(or more)
-    xRoll = random.randrange(1, 50)#randomly generate a 1 or 2
-    yRoll = random.randrange(1, 50)#randomly generate another 1 or 2  
+for i in range(5000): #loop a bunch of times
+    xRoll = random.randrange(1, 50) #change x direction if you generate a 1 
+    yRoll = random.randrange(1, 50) #change y direction if you generate a 1  
+
     if xRoll == 1:
         xdir *= -1
         xpos += xdir
@@ -26,12 +27,13 @@ for i in range(5000): #loop this whole process 100,000 times(or more)
     else:
         ypos += ydir
         
+    #start back in the middle if you go off the screen
     if xpos > 800 or xpos <0:
         xpos = 400
     if ypos > 800 or ypos< 0:
         ypos = 400
 
-    pygame.draw.ellipse(screen, (100, 100, 100), (xpos,ypos, 8, 8))
+    pygame.draw.ellipse(screen, (100, 100, 200), (xpos,ypos, 8, 8))
 
     pygame.display.flip()
 
@@ -43,9 +45,3 @@ while True:
 
 #end game loop##############################################
 pygame.quit()
-
-
-
-
-
-
